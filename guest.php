@@ -71,6 +71,22 @@
             </ul>
         </nav>
     </div>
+
+
+    <?
+    session_start();
+
+    try {
+        $db = new PDO("mysql:host=localhost:3306;dbname=cards", "toor", "toor");
+        $arr = $db -> query("SELECT * FROM img");
+        
+    } catch (PDOExeption $e) {
+        echo 'ошибка';
+        print $e->getMessage();
+        die();
+    }
+
+?>
     
     <div class="modal hidden">
         <div class="modal-show">
@@ -98,6 +114,10 @@
             </div>
         </div>
     </div>
+
 </main>
+
+
+
 </body>
 </html>
