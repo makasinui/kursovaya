@@ -1,4 +1,4 @@
-
+<?$url =$_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];?>
 <header>
     <div class="head-content">
         <div class="content__logo">
@@ -8,13 +8,16 @@
             <nav class="menu">
                 <ul class="menu__items">
                     <a href="./index.php">
-                        <li class="menu__item <?=$_SERVER['SERVER_NAME']=='kurs' ? 'active' : ''?>">Список номеров</li>
+                        <li class="menu__item <?=$url==='kursovaya' || $url==='kursovaya/index.php' ? 'active' : ''?>">Список номеров</li>
                     </a>
                     <a href="./guest.php">
-                        <li class="menu__item <?=$_SERVER['SERVER_NAME']=='kurs/guests' ? 'active' : ''?>">Список гостей</li>
+                        <li class="menu__item <?=$url=='kursovaya/guest.php' ? 'active' : ''?>">Список гостей</li>
                     </a>
-                    <a href="">
-                        <li class="menu__item <?=$_SERVER['SERVER_NAME']=='kurs/otezd' ? 'active' : ''?>">Отъезд</li>
+                    <a href="./evict.php">
+                        <li class="menu__item <?=$url=='kursovaya/evict.php' ? 'active' : ''?>">Отъезд</li>
+                    </a>
+                    <a href="./statistics.php">
+                        <li class="menu__item <?=$url=='kursovaya/statistics.php' ? 'active' : ''?>">Статистика</li>
                     </a>
                 </ul>
             </nav>

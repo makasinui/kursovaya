@@ -1,4 +1,7 @@
 <?
+    $link = mysqli_connect("localhost", "root", "",'cards');
+    $sql = 'SELECT * from card';
+    $result = mysqli_query($link,$sql);
 
 ?>
 <main class="numbers container">
@@ -7,8 +10,8 @@
             Номера
         </div>
         <div class="head-arrows">
-            <a href=""><span><</span></a>
-            <a href=""><span>></span></a>
+            <a href="#"><span class="arrow-left"><</span></a>
+            <a href="#"><span class="arrow-right">></span></a>
         </div>
     </div>
     <div class="nums">
@@ -26,21 +29,30 @@
             </ul>
         </div>
         <div class="numbers-card">
+            <?
+                foreach ($result as $card) {
+            ?>
             <figure class="card">
                 <div class="card-img">
-                    <img src="./img/hotel1.jpg" alt="">
+                    <img src="<?=$card['path']?>" alt="">
                 </div>
+
                 <figcaption class="card-description">
-                    <span class="title">Room</span>
+                    <span class="title"><?=$card['name']?></span>
                     <div class="info">
-                        <span class="price">2789$</span><br>
-                        <span class="available">Доступен</span> <br>
-                        
+                        <span class="price"><?=$card['price']?>$</span><br>
+                        <span class="available"><?=$card['available']?'Доступен' :'Не доступен'?></span> <br>
                     </div>
-                    <span class="guest">1 местный</span>
-                    <button class="btn" style="width:50%;">Заселить</button>
+                    <span class="guest"><?=$card['person']?> местный</span>
+                    <?
+
+                        if($url == 'kursovaya/guest.php'){
+                    ?><button class="btn" style="width:50%;">Заселить</button>
+                    <?}?>
                 </figcaption>
+                
             </figure>
+            <?}?>
         </div>
     </div>
 

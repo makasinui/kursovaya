@@ -122,7 +122,7 @@ figure {
 }
 
 .numbers-select {
-  width: 30%;
+  min-width: 30%;
 }
 
 .price {
@@ -148,6 +148,11 @@ figure {
   background: #30655b;
   border-radius: 8px;
   color: white;
+
+}
+
+.btn-evict{
+  background: #7c282c;
 }
 
 .pgn {
@@ -199,6 +204,39 @@ figure {
 .img-icon{
   width: 10px;
 }
+
+.out{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button{
+  margin-top: 5%;
+}
+
+.out .btn{
+  background: #7c282c;
+  padding: 10px 20px;
+  min-width: 200px;
+}
+
+.numbers-card{
+  display: flex;
+  max-width: 770px; 
+  overflow: hidden;
+}
+
+.card{
+  margin-right: 20px;
+  min-width: 350px;
+}
+
+.out-date, .out-price{
+  font-size: 30px;
+}
+
 
 @media (max-width: 1600px) {
   .container {
