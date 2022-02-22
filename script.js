@@ -68,3 +68,20 @@ function slider(){
 
 arrowRight.addEventListener('click',slider)
 arrowLeft.addEventListener('click',slider)
+
+const choose = document.querySelectorAll('.a-select');
+const card = document.querySelectorAll('.card');
+
+choose.forEach((item,i)=>{
+    
+    item.addEventListener('click',(e)=>{
+        e.preventDefault()
+        console.log(e)
+        console.log(e.target.nextElementSibling)
+        
+
+        e.target.classList.add('active');
+        const baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        history.pushState(null,null,baseUrl + `?class=${i+1}`)
+    })
+})

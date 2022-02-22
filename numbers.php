@@ -17,13 +17,13 @@
     <div class="nums">
         <div class="numbers-select">
             <ul class="select-menu">
-                <a href="">
+                <a href="" class="a-select">
                     <li class="select-items active">Бюджет</li>
                 </a>
-                <a href="">
+                <a href="" class="a-select">
                     <li class="select-items">Средний класс</li>
                 </a>
-                <a href="">
+                <a href="" class="a-select">
                     <li class="select-items">Люкс</li>
                 </a>
             </ul>

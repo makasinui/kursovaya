@@ -205,7 +205,7 @@ figure {
   width: 10px;
 }
 
-.out{
+.out-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -216,7 +216,7 @@ figure {
   margin-top: 5%;
 }
 
-.out .btn{
+.out-container .btn{
   background: #7c282c;
   padding: 10px 20px;
   min-width: 200px;
