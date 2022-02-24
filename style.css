@@ -103,7 +103,7 @@ header {
   flex-direction: column;
 }
 
-.card-description .title {
+.title {
   font-size: 30px;
 }
 
@@ -144,7 +144,7 @@ figure {
   min-height: calc(80vh - 80px);
 }
 
-.btn {
+.btn-in, .btn-add {
   background: #30655b;
   border-radius: 8px;
   color: white;
@@ -153,6 +153,7 @@ figure {
 
 .btn-evict{
   background: #7c282c;
+  color:white;
 }
 
 .pgn {
@@ -194,6 +195,19 @@ figure {
     margin-top: 3%;
 }
 
+.submit{
+  margin:1% 0;
+}
+
+.group input:nth-child(2){
+  margin-left:20px;
+
+}
+
+.group{
+  display: flex;
+}
+
 .modal-close{
     position: absolute;
     cursor: pointer;
@@ -216,27 +230,52 @@ figure {
   margin-top: 5%;
 }
 
+.guest-top .button{
+  margin-top:1%;
+  display: flex;
+  
+}
+
 .out-container .btn{
   background: #7c282c;
   padding: 10px 20px;
   min-width: 200px;
+  
+}
+
+.notavailable{
+  color: #7c282c;
 }
 
 .numbers-card{
   display: flex;
-  max-width: 770px; 
+  justify-content: space-between;
+  flex-wrap: wrap;
   overflow: hidden;
 }
 
 .card{
-  margin-right: 20px;
-  min-width: 350px;
+  min-width: 375px;
+  margin-bottom: 20px;
 }
 
 .out-date, .out-price{
   font-size: 30px;
 }
 
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-top: 5%;
+}
+
+.add-guest{
+  display: flex;
+  margin:0 auto;
+  max-width: 50%;
+}
 
 @media (max-width: 1600px) {
   .container {

@@ -34,6 +34,11 @@
         <div class="search">
             <input type="search" name="" id=""> <img src="./img/search.png" alt="">
         </div>
+        <div class="button">
+            <a href="./addguest.php"><button class="btn btn-add ">Добавить гостя</button></a>
+        </div>
+    
+
     </div>
     <div class="tbl">
         <table class="table">
