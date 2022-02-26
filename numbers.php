@@ -20,12 +20,15 @@
                     <span class="title"><?=$card['name']?></span>
                     <div class="info">
                         <span class="card-text price"><?=$card['price']?>$</span> <br>
-                        <span class=<?=$card['available']?"available":'notavailable'?>><?=$card['available']?'Доступен':'Не доступен'?></span>
+                        <span class=<?=$card['available'] && $card['count']?"available":'notavailable'?>><?=$card['available']?'Доступен':'Не доступен'?></span> <br>
+                        <?if($url == '/guest.php'){?>
+                            <?='Осталось: '.$card['count']?>
+                        <?}?>
                     </div>
                     <span class="guest"><?=$card['person']?> местный</span><br>
                     <?
                     if($url == '/guest.php'){
-                    ?><button class="btn" style="width:50%;">Заселить</button>
+                    ?><button class="btn btn-in" style="width:50%;">Заселить</button>
                     <?}?>
                 </div>
             </div>

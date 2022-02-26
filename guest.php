@@ -25,7 +25,6 @@
 
 ?>
 
-
 <main class="container">
     <div class="guest-top">
         <div class="head-title">
@@ -82,17 +81,18 @@
         <nav aria-label="...">
             <ul class="pagination">
                 <?
+                if($str_pag!=1){
                     for($i=1;$i<=$str_pag;$i++){
                 ?>
                 <li class="page-item <?=$_GET['page']==$i || !($_GET['page']) ? 'active' : ''?>">
                     <a class="page-link" href="guest.php?page=<?=$i?>"><?=$i?></a>
                 </li>
-                <?}?>
+                <?}}?>
             </ul>
         </nav>
     </div>
 
-    <div class="modal hidden">
+    <div class="modal modal-guest hidden">
         <div class="modal-show">
             <div class="modal-close">
                 ✕

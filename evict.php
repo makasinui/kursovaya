@@ -77,12 +77,13 @@
         <nav aria-label="...">
             <ul class="pagination">
                 <?
+                if($str_pag!=1){
                     for($i=1;$i<=$str_pag;$i++){
                 ?>
                 <li class="page-item <?=$_GET['page']==$i ? 'active' : ''?>">
                     <a class="page-link" href="evict.php?page=<?=$i?>"><?=$i?></a>
                 </li>
-                <?}?>
+                <?}}?>
             </ul>
         </nav>
     </div>

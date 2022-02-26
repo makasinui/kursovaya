@@ -1,4 +1,5 @@
 const btn = document.querySelectorAll('.btn-in'),
+      sort = document.querySelectorAll('.img-icon'),
       btnOut = document.querySelectorAll('.btn-evict'),
       modal = document.querySelector('.modal'),
       closeModal = document.querySelector('.modal-close'),
@@ -20,6 +21,11 @@ btn.forEach(button => {
             modal.querySelector('.fio').textContent = fio;
             modal.querySelector('.pasport').textContent = pasport;
             modal.querySelector('.date').textContent = date;
+            if(modal.querySelectorAll('.notavailable')){
+                modal.querySelectorAll('.notavailable').forEach(card=>{
+                    card.parentElement.parentElement.parentElement.style.display="none";
+                })
+            }
         }
     })    
 });
@@ -33,8 +39,8 @@ btnOut.forEach(button => {
               out = target[4].textContent,
               number = target[5].textContent
 
-        let date1 = new Date(date.split('.').reverse());
-        let date2 = new Date(out.split('.').reverse());
+        let date1 = new Date(date);
+        let date2 = new Date(out);
         let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
         
         if(number === '-') alert('Гость ещё не заселён!')
@@ -57,3 +63,10 @@ if(closeModal){
         modal.classList.add('hidden')
     })
 }
+
+sort.forEach((item,i)=>{
+    item.addEventListener('click',(e)=>{
+        e.preventDefault();
+        console.log(e)
+    })
+})
