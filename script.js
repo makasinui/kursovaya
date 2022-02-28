@@ -1,34 +1,28 @@
-const btn = document.querySelectorAll('.btn-in'),
+const btn = document.querySelector('.btn-add'),
       sort = document.querySelectorAll('.img-icon'),
       btnOut = document.querySelectorAll('.btn-evict'),
       modal = document.querySelector('.modal'),
       closeModal = document.querySelector('.modal-close'),
-      arrowLeft = document.querySelector('.arrow-left'),
-      arrowRight = document.querySelector('.arrow-right')
+      cardTitle = document.querySelectorAll('.card-body .title'),
+      count = document.querySelectorAll('.count');
+
+let numbers = document.querySelectorAll('.number');
+
+numbers.forEach(number=>{
+
+})
 
 
-btn.forEach(button => {
-    button.addEventListener('click',(e)=>{
-        const target = e.target.parentElement.parentElement.children,
-              fio = target[1].textContent,
-              pasport = target[2].textContent,
-              date = target[3].textContent,
-              number = target[4].textContent
-        if(number !== '-') alert('Гость уже заселён!')
-        else{
-            modal.classList.remove('hidden');
-        
-            modal.querySelector('.fio').textContent = fio;
-            modal.querySelector('.pasport').textContent = pasport;
-            modal.querySelector('.date').textContent = date;
-            if(modal.querySelectorAll('.notavailable')){
-                modal.querySelectorAll('.notavailable').forEach(card=>{
-                    card.parentElement.parentElement.parentElement.style.display="none";
-                })
-            }
-        }
-    })    
-});
+btn.addEventListener('click',(e)=>{
+    e.preventDefault()
+    modal.classList.remove('hidden');
+
+    if(modal.querySelectorAll('.notavailable')){
+        modal.querySelectorAll('.notavailable').forEach(card=>{
+            card.parentElement.parentElement.parentElement.style.display="none";
+        })
+    }
+})    
 
 btnOut.forEach(button => {
     button.addEventListener('click',(e)=>{
@@ -68,5 +62,12 @@ sort.forEach((item,i)=>{
     item.addEventListener('click',(e)=>{
         e.preventDefault();
         console.log(e)
+    })
+})
+
+modal.querySelectorAll('.btn-in').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+        const number = e.target.parentElement.querySelector('.title').textContent.split('Room').join('').split(' #').join('')
+        modal.querySelector('#number').value=number
     })
 })

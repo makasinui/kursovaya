@@ -9,6 +9,7 @@
 ?>
 
 <?
+
     if (isset($_GET['page'])){
         $page = $_GET['page'];
     } else{ 
@@ -34,11 +35,10 @@
             <input type="search" name="" id=""> <img src="./img/search.png" alt="">
         </div>
         <div class="button">
-            <a href="./addguest.php"><button class="btn btn-add ">Добавить гостя</button></a>
+            <a href="#"><button class="btn btn-add">Добавить гостя</button></a>
         </div>
-    
-
     </div>
+    
     <div class="tbl">
         <table class="table">
             <thead>
@@ -48,7 +48,6 @@
                 <th scope="col">Паспортные данные <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
                 <th scope="col">Дата приезда <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
                 <th scope="col">Номер <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -61,9 +60,6 @@
                     <td class="pasport"><?=$guest['pasport']?></td>
                     <td class="date"><?=$guest['date']?></td>
                     <td class="number"><?=$guest['number'] ? $guest['number'] :'-'?></td>
-                    <td>
-                        <button class="btn btn-in">заселить</button>
-                    </td>
                 </tr>
                 <?}?>
             </tbody>
@@ -91,34 +87,24 @@
             </ul>
         </nav>
     </div>
-
+<!--
+    модальное окно в котором вводятся все данные,
+    есть доступные номера, выбрав которые присваивается номер
+    в input
+-->
     <div class="modal modal-guest hidden">
         <div class="modal-show">
             <div class="modal-close">
                 ✕
             </div>
-            <table class="table" style="margin:20px 0px;">
-                <thead>
-                    <tr>
-                    <th scope="col">ФИО <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a> </th>
-                    <th scope="col">Паспортные данные <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                    <th scope="col">Дата приезда <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="fio" scope="row"></td>
-                        <td class="pasport"></td>
-                        <td class="date"></td>
-                    </tr>
-                </tbody>
-                </table>
+            <?include_once('./addguest.php')?>
             <div class="guest-numbers">
                 <?include_once('./numbers.php')?>
             </div>
         </div>
     </div>
-
+<?
+?>
 </main>
 
 
