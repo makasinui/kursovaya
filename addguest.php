@@ -7,14 +7,14 @@
     
         $link = mysqli_connect("localhost", "root", "",'cards');
         $fio = $_POST['fio'];
-        $number = $_POST['number'];
+        $number_pas = $_POST['number_pas'];
         $serial = $_POST['serial'];
         $date = $_POST['date'];
         $dateOut = $_POST['date-out'];
         $number = $_POST['number'];
 
         if($date){
-            $sql = "INSERT INTO `users` (`fio`, `pasport`, `date`, `evict`, `number`) VALUES ('$fio','$serial $number','$date','$dateOut',$number)";
+            $sql = "INSERT INTO `users` (`fio`, `pasport`, `date`, `evict`, `number`) VALUES ('$fio','$serial $number_pas','$date','$dateOut',$number)";
             $resultt = mysqli_query($link, $sql);
             print_r($_POST);
             echo '<script>window.location.href="http://kursovaya-main/guest.php"</script>';
@@ -35,7 +35,7 @@
                 <span>Паспортные данные</span>
                 <div class="group">
                     <input type="text" class="form-control" name="serial" required id="pasport-ser" placeholder="Серия..." >
-                    <input type="text" class="form-control" name="number" required id="pasport-num" placeholder="Номер..." >
+                    <input type="text" class="form-control" name="number_pas" required id="pasport-num" placeholder="Номер..." >
                 </div>
                 
             </div>

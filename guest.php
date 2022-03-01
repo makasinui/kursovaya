@@ -87,11 +87,7 @@
             </ul>
         </nav>
     </div>
-<!--
-    модальное окно в котором вводятся все данные,
-    есть доступные номера, выбрав которые присваивается номер
-    в input
--->
+
     <div class="modal modal-guest hidden">
         <div class="modal-show">
             <div class="modal-close">

@@ -9,7 +9,16 @@ const btn = document.querySelector('.btn-add'),
 let numbers = document.querySelectorAll('.number');
 
 numbers.forEach(number=>{
-
+    count.forEach(i=>{
+        if(number.textContent == i.parentElement.parentElement.querySelector('.title').textContent.split('Room #')[1]){
+            const num = i.textContent.split("Осталось: ")[1];
+            i.textContent = `Осталось: ${+(num-1)}`;
+            if(i.textContent.split('Осталось: ')[1]==0){
+                i.parentElement.querySelector('.available').classList.add('notavailable');
+                i.parentElement.querySelector('.available').classList.remove('available');
+            }
+        }
+    })
 })
 
 

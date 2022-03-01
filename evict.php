@@ -8,7 +8,10 @@
     include_once('./header.php')
 ?>
 <?
-       if (isset($_GET['page'])){
+    
+    
+    
+    if (isset($_GET['page'])){
         $page = $_GET['page'];
     } else {
         $page = 1;
@@ -21,7 +24,17 @@
     $link = mysqli_connect("localhost", "root", "",'cards');
     $sql = "SELECT * from users LIMIT $art,$kol";
     $result = mysqli_query($link,$sql);
-
+    
+    $id = $_GET['id'];
+    print_r($id);
+    if($id){
+        
+        $query = "DELETE FROM users WHERE id = '$id'";
+        
+        mysqli_query($link,$query);
+        echo '<script>window.location.href="http://kursovaya-main/evict.php"</script>';
+    }
+    
 ?>
 <main class="container">
     <div class="guest-top">
@@ -50,15 +63,19 @@
                 foreach ($result as $guest) {
                 ?>
                 <tr>
-                    <th scope="row"><?=$guest['id']?></th>
-                    <td class="fio"><?=$guest['fio']?> </td>
-                    <td class="pasport"><?=$guest['pasport']?></td>
-                    <td class="date"><?=$guest['date']?></td>
-                    <td class="out"><?=$guest['evict']?></td>
-                    <td class="number"><?=$guest['number'] ? $guest['number'] :'-'?></td>
-                    <td>
-                        <button class="btn btn-evict">выселить</button>
-                    </td>
+                    <form action="./evict.php">
+                        <th scope="row">
+                            <input type="text" name="id" size=1 value=<?=$guest['id']?> style="border:none;color:black;font-weight:bold;cursor:default;background-color:white;">  
+                        </th>
+                        <td class="fio"><?=$guest['fio']?> </td>
+                        <td class="pasport"><?=$guest['pasport']?></td>
+                        <td class="date"><?=$guest['date']?></td>
+                        <td class="out"><?=$guest['evict']?></td>
+                        <td class="number"><?=$guest['number'] ? $guest['number'] :'-'?></td>
+                        <td>
+                            <button class="btn btn-evict">выселить</button>
+                        </td>
+                    </form>
                 </tr>
                 <?}?>
             </tbody>
