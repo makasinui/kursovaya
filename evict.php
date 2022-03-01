@@ -26,13 +26,19 @@
     $result = mysqli_query($link,$sql);
     
     $id = $_GET['id'];
-    print_r($id);
+    $date = date("Y-m-d");
+
     if($id){
-        
-        $query = "DELETE FROM users WHERE id = '$id'";
-        
+        $query = "UPDATE users SET evict ='$date' WHERE id = $id";
         mysqli_query($link,$query);
-        echo '<script>window.location.href="http://kursovaya-main/evict.php"</script>';
+
+        $query = "INSERT INTO del SELECT * FROM users WHERE id = '$id'";
+        mysqli_query($link,$query);
+
+        $query = "DELETE FROM users WHERE id = '$id'";
+        mysqli_query($link,$query);
+        
+        echo '<script>window.location.href="./evict.php"</script>';
     }
     
 ?>

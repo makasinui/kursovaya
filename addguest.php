@@ -17,7 +17,7 @@
             $sql = "INSERT INTO `users` (`fio`, `pasport`, `date`, `evict`, `number`) VALUES ('$fio','$serial $number_pas','$date','$dateOut',$number)";
             $resultt = mysqli_query($link, $sql);
             print_r($_POST);
-            echo '<script>window.location.href="http://kursovaya-main/guest.php"</script>';
+            echo '<script>window.location.href="./guest.php"</script>';
             if ($resultt == false) {
                 print("Произошла ошибка при выполнении запроса");
             }

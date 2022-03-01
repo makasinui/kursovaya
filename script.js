@@ -4,7 +4,8 @@ const btn = document.querySelector('.btn-add'),
       modal = document.querySelector('.modal'),
       closeModal = document.querySelector('.modal-close'),
       cardTitle = document.querySelectorAll('.card-body .title'),
-      count = document.querySelectorAll('.count');
+      count = document.querySelectorAll('.count'),
+      canvas = document.querySelector('#statistic');
 
 let numbers = document.querySelectorAll('.number');
 
@@ -21,17 +22,19 @@ numbers.forEach(number=>{
     })
 })
 
-
-btn.addEventListener('click',(e)=>{
-    e.preventDefault()
-    modal.classList.remove('hidden');
-
-    if(modal.querySelectorAll('.notavailable')){
-        modal.querySelectorAll('.notavailable').forEach(card=>{
-            card.parentElement.parentElement.parentElement.style.display="none";
-        })
-    }
-})    
+if(btn){
+    btn.addEventListener('click',(e)=>{
+        e.preventDefault()
+        modal.classList.remove('hidden');
+    
+        if(modal.querySelectorAll('.notavailable')){
+            modal.querySelectorAll('.notavailable').forEach(card=>{
+                card.parentElement.parentElement.parentElement.style.display="none";
+            })
+        }
+    })  
+}
+  
 
 btnOut.forEach(button => {
     button.addEventListener('click',(e)=>{
@@ -73,10 +76,20 @@ sort.forEach((item,i)=>{
         console.log(e)
     })
 })
-
-modal.querySelectorAll('.btn-in').forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-        const number = e.target.parentElement.querySelector('.title').textContent.split('Room').join('').split(' #').join('')
-        modal.querySelector('#number').value=number
+if(modal){
+    modal.querySelectorAll('.btn-in').forEach(btn=>{
+        btn.addEventListener('click',(e)=>{
+            const number = e.target.parentElement.querySelector('.title').textContent.split('Room').join('').split(' #').join('')
+            modal.querySelector('#number').value=number
+        })
     })
+}
+
+console.log(canvas);
+
+const myChart = new Chart(ctx,{
+    type:'bar',
+    data:{
+        
+    }
 })
