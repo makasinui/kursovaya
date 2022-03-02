@@ -14,7 +14,7 @@
             <?
                 foreach ($result as $card) {
             ?>
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img class="card-img card-img-top   " src="./img/hotel1.jpg" alt="Card image cap">
                 <div class="card-body">
                     <span class="title"><?=$card['name']?></span>

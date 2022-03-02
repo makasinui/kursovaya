@@ -56,11 +56,11 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">ФИО <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                <th scope="col">Паспортные данные <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                <th scope="col">Дата приезда <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                <th scope="col">Дата отъезда <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
-                <th scope="col">Номер <a href=""> <img class="img-icon" src="./img/sort.png" alt=""> </a></th>
+                <th scope="col">ФИО </th>
+                <th scope="col">Паспортные данные</th>
+                <th scope="col">Дата приезда </th>
+                <th scope="col">Дата отъезда </th>
+                <th scope="col">Номер </th>
                 <th scope="col"></th>
                 </tr>
             </thead>

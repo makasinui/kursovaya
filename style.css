@@ -12,6 +12,7 @@ body {
 .container {
   max-width: 1500px;
   margin: 0 auto;
+  box-sizing: border-box;
   width: 100%;
 }
 
@@ -288,6 +289,10 @@ figure {
   margin-right:20px;
 }
 
+.doxod{
+  font-size: 24px;
+}
+
 @media (max-width: 1600px) {
   .container {
     max-width: 1300px;
@@ -299,18 +304,38 @@ figure {
     max-width: 1000px;
   }
 }
-
-@media (max-width:769px){
+@media (max-width:600px) {
   .container{
-    max-width: 700px;
+    max-width: 400px;
+  }
+}
+@media (max-width:769px){
+  .numbers.container{
+    max-width: 600px;
+    padding-top:5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .numbers-card{
+    justify-content: center;
+
+  }
+
+  .head-content{
+    flex-direction: row-reverse;
   }
 
   .nums{
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .card{
-    width: 50%;
+    max-width: 18rem;
   }
 
   .numbers-select{
@@ -328,5 +353,94 @@ figure {
 
   .card-img img{
     width: 250px;
+  }
+
+  .menu__items{
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    display: none;
+    width: fit-content;
+    background: rgba(64, 64, 64, 0.83);
+    padding:50px 0;
+  }
+
+  .menu__item {
+    margin:10px 0;
+  }
+  
+
+  .hamburger {
+    display: block;
+    top:50%;
+    left:10%;
+    width: 35px;
+    height: 4px;
+    background: #009688;
+    position: absolute;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: 0.5s;
+  }
+
+  .menu{
+    position: relative;
+  }
+  .hamburger::before {
+    top: 12px;
+  }
+  
+  .hamburger::after {
+    top: 25px;
+  }  
+  .icon-one {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+  
+  .hamburger-one:before,
+  .hamburger-one:after {
+    content: '';
+    position:absolute;
+    width: 35px;
+    height: 4px;
+    background:#009688;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition:0.5s;
+  }
+  
+  .active-one .hamburger-one {
+    background:rgba(0,0,0,0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+  }
+  
+  .active-one .hamburger-one:before {
+    top: 10px;
+    transform:rotate(45deg);
+  }
+  
+  .active-one .hamburger-one:after {
+    top: 10px;
+    transform:rotate(135deg);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+
+}
+
+@media (max-width:425px) {
+  .head-content{
+    justify-content: space-between;
+  }
+
+  .card{
+    min-width: 100px;
+    max-width: 220px;
+  }
+  .numbers-card{
+    justify-content: unset;
   }
 }

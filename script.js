@@ -1,4 +1,7 @@
 const btn = document.querySelector('.btn-add'),
+      burger = document.querySelector('.menu'),
+      menu = document.querySelector('.hamburger'),
+      menuItems = document.querySelector('.menu__items'),
       sort = document.querySelectorAll('.img-icon'),
       btnOut = document.querySelectorAll('.btn-evict'),
       modal = document.querySelector('.modal'),
@@ -7,6 +10,17 @@ const btn = document.querySelector('.btn-add'),
       count = document.querySelectorAll('.count'),
       canvas = document.querySelector('#statistic');
 
+burger.addEventListener('click',()=>{
+    burger.classList.toggle('active-one');
+    if(burger.classList.contains('active-one')){
+        menuItems.style.display="block";
+    } else {
+        menuItems.style.display="none";
+    }
+})
+      
+      
+      
 let numbers = document.querySelectorAll('.number');
 
 numbers.forEach(number=>{
@@ -84,12 +98,3 @@ if(modal){
         })
     })
 }
-
-console.log(canvas);
-
-const myChart = new Chart(ctx,{
-    type:'bar',
-    data:{
-        
-    }
-})
