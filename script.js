@@ -13,7 +13,7 @@ const btn = document.querySelector('.btn-add'),
 burger.addEventListener('click',()=>{
     burger.classList.toggle('active-one');
     if(burger.classList.contains('active-one')){
-        menuItems.style.display="block";
+        menuItems.style.display="flex";
     } else {
         menuItems.style.display="none";
     }

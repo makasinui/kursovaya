@@ -51,7 +51,7 @@
             <input type="search" name="" id=""> <img src="./img/search.png" alt="">
         </div>
     </div>
-    <div class="tbl">
+    <div class="tbl table-responsive">
         <table class="table">
             <thead>
                 <tr>

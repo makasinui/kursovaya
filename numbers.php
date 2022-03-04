@@ -14,7 +14,7 @@
             <?
                 foreach ($result as $card) {
             ?>
-            <div class="card">
+            <div class="card" <?=stripos($url,'guest.php') || stripos($url,'index.php') || stripos($url,'/')?'style="width:18rem;"' :''?>>
                 <img class="card-img card-img-top   " src="./img/hotel1.jpg" alt="Card image cap">
                 <div class="card-body">
                     <span class="title"><?=$card['name']?></span>

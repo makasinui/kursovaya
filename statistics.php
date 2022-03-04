@@ -8,20 +8,20 @@
         $date_out = $_GET['date_out']
     ?>
     <main class="container">
-        <form class="select-date" action="./statistics.php">
-            <select name="select" id="">
-                <option value="guest">Гости</option>
-                <option value="number1">Номер 1</option>
-                <option value="number2">Номер 2</option>
-                <option value="number3">Номер 3</option>
-                <option value="number4">Номер 4</option>
-                <option value="number5">Номер 5</option>
-                <option value="number6">Номер 6</option>
-            </select>
-            <input type="date" name="date" id="date" required> 
-            <input type="date" name="date_out" id="date_out" required>
-            <button class="btn btn-success">Отправить</button>
-        </form>
+            <form class="select-date" action="./statistics.php">
+                <select name="select" id="">
+                    <option value="guest">Гости</option>
+                    <option value="number1">Номер 1</option>
+                    <option value="number2">Номер 2</option>
+                    <option value="number3">Номер 3</option>
+                    <option value="number4">Номер 4</option>
+                    <option value="number5">Номер 5</option>
+                    <option value="number6">Номер 6</option>
+                </select>
+                <input type="date" name="date" id="date" required>
+                <input type="date" name="date_out" id="date_out" required>
+                <button class="btn btn-success">Отправить</button>
+            </form>
         <div class="statistic">
             <?  
             if($_GET['select']=='guest'){

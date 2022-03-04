@@ -6,7 +6,7 @@
         </div>
         <div class="content__items">
             <nav class="menu">
-                <div class="hamburger hamburger-one">
+                <div class="hamburger hamburger-one"></div>
                     <ul class="menu__items">
                         <a href="./index.php">
                             <li class="menu__item <?=$url==='/' || $url==='/index.php' ? 'active' : ''?>">Список номеров</li>
@@ -22,7 +22,7 @@
                         </a>
                     
                     </ul>
-                </div>
+                
             </nav>
         </div>
     </div>
