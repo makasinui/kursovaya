@@ -5,18 +5,22 @@
     <?include_once('./header.php')?>
     <?
         $date = $_GET['date'];
-        $date_out = $_GET['date_out']
+        $date_out = $_GET['date_out'];
+
+        $link = mysqli_connect("localhost", "root", "",'cards');
+        $sql = "SELECT * from card";
+        $result = mysqli_query($link,$sql);
+        $result = mysqli_fetch_all($result);
+        $countNum = (count($result));
     ?>
     <main class="container">
             <form class="select-date" action="./statistics.php">
                 <select name="select" id="">
+                 
                     <option value="guest">Гости</option>
-                    <option value="number1">Номер 1</option>
-                    <option value="number2">Номер 2</option>
-                    <option value="number3">Номер 3</option>
-                    <option value="number4">Номер 4</option>
-                    <option value="number5">Номер 5</option>
-                    <option value="number6">Номер 6</option>
+                    <?for($i=1;$i<$countNum+1;$i++){?>   
+                    <option value="number<?=$i?>">Номер <?=$i?></option>
+                    <?}?>
                 </select>
                 <input type="date" name="date" id="date" required>
                 <input type="date" name="date_out" id="date_out" required>
@@ -47,7 +51,8 @@
                         $query = "SELECT * from card WHERE num = ".(int)$guest['number'];
                         $queryResult = mysqli_query($link,$query);
                         $queryResult = mysqli_fetch_array($queryResult);
-                        $price = (abs(strtotime($guest['evict']) - strtotime($guest['date']))/86400)*$queryResult['price'];
+                        $priceDop = $guest['dop1'] == 1?(abs(strtotime($guest['evict']) - strtotime($guest['date']))/86400)*10:0 + $guest['dop2'] == 1?(abs(strtotime($guest['evict']) - strtotime($guest['date']))/86400)*2:0 + $guest['dop3'] == 1?(abs(strtotime($guest['evict']) - strtotime($guest['date']))/86400)*15:0 ;
+                        $price = (abs(strtotime($guest['evict']) - strtotime($guest['date']))/86400)*$queryResult['price'] + $priceDop;
 
                     ?>
                     <tr>
@@ -76,12 +81,16 @@
                     $count = mysqli_query($link,$query)->num_rows;
                     foreach((mysqli_query($link,$query)) as $row){
                         $price += (abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*$card['price'];
+                        $priceDop = $row['dop1'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*10:0 + $row['dop2'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*2:0 + $row['dop3'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*15:0 ;
+                        $price+=$priceDop;
                     }
 
                     $query = "SELECT * from del WHERE number = $num and Date >= '$date' and Date <= '$date_out'";
                     $count_del = mysqli_query($link,$query)->num_rows;
                     foreach((mysqli_query($link,$query)) as $row){
                         $price_old += (abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*$card['price'];
+                        $priceDop = $row['dop1'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*10:0 + $row['dop2'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*2:0 + $row['dop3'] == 1?(abs(strtotime($row['evict']) - strtotime($row['date']))/86400)*15:0 ;
+                        $price+=$priceDop;
                     }
 
                     

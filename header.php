@@ -2,13 +2,13 @@
 <header>
     <div class="head-content">
         <div class="content__logo">
-            <a href="./index.php"><img src="img/Luxzury.png" alt=""></a>
+            <a href="./"><img src="img/Luxzury.png" alt=""></a>
         </div>
         <div class="content__items">
             <nav class="menu">
                 <div class="hamburger hamburger-one"></div>
                     <ul class="menu__items">
-                        <a href="./index.php">
+                        <a href="./">
                             <li class="menu__item <?=$url==='/' || $url==='/index.php' ? 'active' : ''?>">Список номеров</li>
                         </a>
                         <a href="./guest.php">

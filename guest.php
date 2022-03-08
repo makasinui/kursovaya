@@ -32,7 +32,7 @@
             Гости
         </div>
         <div class="search">
-            <input type="search" name="" id=""> <img src="./img/search.png" alt="">
+            <input type="search" class="search" name="" id=""> <img src="./img/search.png" alt="">
         </div>
         <div class="button">
             <a href="#"><button class="btn btn-add">Добавить гостя</button></a>

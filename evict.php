@@ -48,7 +48,7 @@
             Отъезд
         </div>
         <div class="search">
-            <input type="search" name="" id=""> <img src="./img/search.png" alt="">
+            <input type="search" class="search" name="" id=""> <img src="./img/search.png" alt="">
         </div>
     </div>
     <div class="tbl table-responsive">
@@ -110,45 +110,6 @@
             </ul>
         </nav>
     </div>
-    
-    <div class="modal hidden">
-        <div class="modal-show">
-            <div class="modal-close">
-                ✕
-            </div>
-            <table class="table" style="margin:20px 0px;">
-                <thead>
-                    <tr>
-                    <th scope="col">ФИО <a href=""> </a> </th>
-                    <th scope="col">Паспортные данные <a href=""></a></th>
-                    <th scope="col">Номер <a href=""></a></th>
-                    <th scope="col">Дата приезда <a href=""> </a></th>
-                    <th scope="col">Дата отъезда <a href=""> </a></th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="fio" scope="row"></td>
-                        <td class="pasport"></td>
-                        <td class="number"></td>
-                        <td class="date"></td>
-                        <td class="out"></td>
-                    </tr>
-                </tbody>
-                </table>
-                
-                <div class="out-container">
-                    <div class="out-date"></div>
-                    <div class="out-price"></div>
-                    <div class="button">
-                        <button class="btn" >Выселить</button>
-                    </div>
-                </div>
-                
-        </div>
-    </div>
-
 </main>
 
 

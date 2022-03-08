@@ -1,9 +1,11 @@
 const btn = document.querySelector('.btn-add'),
       burger = document.querySelector('.menu'),
+      search = document.querySelectorAll('.search'),
+      guests = document.querySelectorAll('tbody tr'),
+      addNumber = document.querySelector('.add-number'),
       menu = document.querySelector('.hamburger'),
       menuItems = document.querySelector('.menu__items'),
       sort = document.querySelectorAll('.img-icon'),
-      btnOut = document.querySelectorAll('.btn-evict'),
       modal = document.querySelector('.modal'),
       closeModal = document.querySelector('.modal-close'),
       cardTitle = document.querySelectorAll('.card-body .title'),
@@ -18,7 +20,22 @@ burger.addEventListener('click',()=>{
         menuItems.style.display="none";
     }
 })
-      
+
+search.forEach(item=>{
+    console.log(guests)
+    item.addEventListener('input',(e)=>{
+        filter = e.target.value.toUpperCase()
+        for(let i = 0; i<guests.length;i++){
+            let a = guests[i];
+            console.log(a.innerHTML.toUpperCase());
+            if(a.innerHTML.toUpperCase().indexOf(filter)>-1){
+                guests[i].style.display=''
+            } else {
+                guests[i].style.display="none"
+            }
+        }
+    })
+})
       
       
 let numbers = document.querySelectorAll('.number');
@@ -36,6 +53,12 @@ numbers.forEach(number=>{
     })
 })
 
+if(addNumber){
+    addNumber.addEventListener('click',()=>{
+        modal.classList.remove('hidden')
+    })
+}
+
 if(btn){
     btn.addEventListener('click',(e)=>{
         e.preventDefault()
@@ -48,35 +71,6 @@ if(btn){
         }
     })  
 }
-  
-
-btnOut.forEach(button => {
-    button.addEventListener('click',(e)=>{
-        const target = e.target.parentElement.parentElement.children,
-              fio = target[1].textContent,
-              pasport = target[2].textContent,
-              date = target[3].textContent,
-              out = target[4].textContent,
-              number = target[5].textContent
-
-        let date1 = new Date(date);
-        let date2 = new Date(out);
-        let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-        
-        if(number === '-') alert('Гость ещё не заселён!')
-        else{
-            modal.classList.remove('hidden');
-            console.log(daysLag);
-            modal.querySelector('.fio').textContent = fio;
-            modal.querySelector('.pasport').textContent = pasport;
-            modal.querySelector('.date').textContent = date;
-            modal.querySelector('.out').textContent = out;
-            modal.querySelector('.number').textContent = number;
-            modal.querySelector('.out-date').textContent ='До отъезда: '+ daysLag + ' дней';
-            modal.querySelector('.out-price').textContent='Стоимость услуг ' + '2000rub';
-        }
-    })    
-});
 
 if(closeModal){
     closeModal.addEventListener('click',()=>{
