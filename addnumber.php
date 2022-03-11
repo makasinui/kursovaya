@@ -17,7 +17,7 @@
         $available = $_POST['available'] == 'on'?1:0;
         
 
-        if($available){
+        if($count){
             $sql = "INSERT INTO `card` (`path`,`num`, `name`, `price`, `person`, `available`,`count`) VALUES ('./img/hotel1.jpg','$num','$name', '$price','$person','$available','$count')";
             $resultt = mysqli_query($link, $sql);
 
@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                 <label for="date">Доступность</label>
-                        <input type="checkbox" name="available" style="-webkit-appearance:checkbox;height:39px;width:50px;" class="form-control" required id="date-out" placeholder="Дата приезда..." >
+                        <input type="checkbox" name="available" style="-webkit-appearance:checkbox;height:39px;width:50px;" class="form-control" id="date-out" placeholder="Дата приезда..." >
                 </div>
                 <div class="form-group">
                     <label for="date">Количество мест в номере:</label>

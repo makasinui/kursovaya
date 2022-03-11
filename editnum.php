@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
 <?include_once('./head.php')?>
 <body>
     <?
-        session_start();
         if(isset($_POST['num'])){
             $_SESSION['num'] = $_POST['num'];
         }
 
         $number = $_SESSION['num'];
+
         $link = mysqli_connect("localhost", "root", "",'cards');
 
         $query = "SELECT * from card WHERE num = $number";
@@ -29,7 +29,7 @@
                 <span class="guest"><?=$card['person']?> местный</span><br>
              </div>
 
-</div>
+    </div>
         <form name="form" class="container form" method="GET" style="width:50%;">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Название</label>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                 <label for="date">Доступность</label>
-                        <input type="checkbox" name="available" style="-webkit-appearance:checkbox;height:39px;width:50px;" class="form-control" required id="date-out" placeholder="Дата приезда..." >
+                        <input type="checkbox" name="available" style="-webkit-appearance:checkbox;height:39px;width:50px;" class="form-control" id="date-out" placeholder="Дата приезда..." >
                 </div>
                 <div class="form-group">
                     <label for="date">Количество мест в номере:</label>
@@ -66,10 +66,12 @@
         $available_num = $_GET['available_num'];
         $available = $_GET['available'] == 'on'?1:0;
         $num = $_GET['number'];
-        echo $name;
-        if($available){
+        if($num){
             $query = "UPDATE card SET name ='$name', price = '$price', count = '$available_num', available = '$available', person = '$num' WHERE num = $number";
-            mysqli_query($link,$query);
+            if(!mysqli_query($link,$query)){
+                print_r(mysqli_error($link));
+            }
+
             echo '<script>window.location.href="./editnum.php"</script>';
         }
      ?>
